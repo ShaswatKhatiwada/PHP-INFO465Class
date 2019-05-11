@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+/*
+    border-style: dotted;
+    border-width: 1px;
+    border-color: orange;
+*/
+}
+body {
+    text-align: center;
+ background-size: cover;    
+height: 100%;     
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("media/background.png");
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+h1, h2, h3, h4, h5, h6, h7, legend, .h1ish {
+    font-family: Georgia, Times, 'Times New Roman', serif; 
+    font-weight: lighter;
+
+    color: #8d8e8d;
+}
+h1 {
+  font-size:1.4em;
+}
+
+h4, legend {
+  font-size:1.2em; 
+}
+
+.h1ish {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  color: #aaaaaa;
+}
+header {
+  background-color: #d30007;
+  color: #353eba;
+  padding: 0rem;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 25px;
+}
+header a {
+    text-decoration: none;
+    color: #888888;
+}  
+header h1  {
+    margin-top:-.75em;
+    margin-bottom:0;
+    font-size: 1.6em;
+    color: #888888;
+}
+main {
+  background-color: #efefef;
+  padding:.5em;
+}
+main a {
+  color: #115511;
+}
+main a:hover {
+  color: #771111;
+}
+main li {
+  margin-bottom: 1em;
+}
+aside {
+    color: #111155;
+    padding: .5rem;
+    text-align: left;
+    font-size: 1em;
+}
+aside a {
+  color: #115511;
+}
+aside a:hover {
+  color: #771111;
+}
+aside h2 {
+	font-size: 1.3em;
+	margin: 0 0 .5em 0;
+}
+aside ul {
+	/*list-style-type: none; */
+    margin: 0 0 .5em .5em;
+    padding: 0;
+}
+aside strong {
+	font-size: 1.1em;
+	font-weight:bolder;
+}
+aside li {
+	margin: 0 0 1em .5em;
+	font-size: .9em;
+}
+footer {
+    overflow: hidden;
+    margin-top: 1em;
+    background-color: #d30007;
+    color: #ffffff;
+    text-align: center;
+    font-size: .6em;
+    padding: 1rem;
+    border-radius: 25px;
+}
+footer a {
+  color: #ffffff;
+}
+label {
+    width:100px;
+    float: left;
+    text-align: left;
+    padding-right:1em;
+}
+textarea {
+  margin-bottom: .5em;
+  float:left;
+  width:20em;
+  height:5em;
+}
+input[type=text] {
+  margin-bottom: .5em;
+  width:18em;
+  float:left;
+  clear:right;
+}
+fieldset ul { 
+  list-style: none;
+}
+#Container {
+  max-width: 700px;
+  min-width: 320px;
+  margin-left: auto; 
+  margin-right: auto;
+  text-align: left;
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.24), 0 2px 3px rgba(0,0,0,0.48);
+  border-radius:25px;
+  padding: .5em;
+}
+.Row {
+  width: 100%;
+  display: block;
+  overflow:hidden;
+}
+.Row:after {
+    content: "";
+    clear: both;
+}
+[class*="Col-"] {
+    float: left;
+    padding: .5rem;
+}
+[class*="Col-"] {
+    width: 100%;
+}
+.WideLabel {
+  text-align:left;
+  width:12em;
+}
+.Card {
+  margin-top: .5em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 25px;
+  background-color: #f5f5f5;
+}
+.LogoImage {
+  width: 80px;
+  height: auto;
+}
+.ReportList {
+  font-size: 1.2em;
+  margin-bottom:1.5em;
+}
+.NoMargins {
+  margin:0;
+}
+.WhiteBG {
+  background-color:#ffffff;
+}
+.LiteContrastingBG {
+  background-color:#d0cccc;
+}
+.Flag {
+  color:red;
+}
+.FinePrint {
+  font-size:.8em;
+}
+.FloatLeft {
+  float:left;
+}
+.Centering {
+  text-align:center;
+}
+.Centered {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.AlphaData {
+  text-align: left;
+  vertical-align: top;
+  padding-left: .5em;
+}
+.NumericData {
+  text-align: right;
+  vertical-align: top;
+  padding-right: .5em;
+}
+.Bottom1px {
+  border-bottom: 1px dotted #777777;
+}
+.Top1px {
+  border-top: 1px dotted #777777;
+}
+                
+
+@media only screen and (min-width: 620px) {
+  .Col-1 {width: 8.33%;}
+  .Col-2 {width: 16.66%;}
+  .Col-3 {width: 25%;}
+  .Col-4 {width: 33.33%;}
+  .Col-5 {width: 41.66%;}
+  .Col-6 {width: 50%;}
+  .Col-7 {width: 58.33%;}
+  .Col-8 {width: 66.66%;}
+  .Col-9 {width: 73%; margin-right:.77em;}
+  .Col-10 {width: 83.33%;}
+  .Col-11 {width: 91.66%;}
+  .Col-12 {width: 100%;}
+  header h1 {
+    margin-top: .25em;
+    font-size:2em;
+    padding-right:2em;
+  }
+  aside, .Card {
+    margin-bottom: .5em;
+  }
+  label {
+    width:140px;
+    text-align:right;
+    float:left;
+    padding-right:1em;
+  }
+  textarea {
+    float:left;
+    width:400px;
+    height:4em;
+  }
+  input[type=text], input[type=password] {
+    width:300px;
+    float:left;
+    clear:right;
+  }
+
+  /*
+    fieldset p {
+       clear: right;
+      display: block;
+    }
+  */
+  .LogoImage {
+    margin-top: .5em;
+    width:120px;
+    height: auto;
+  }
+  .ProductImage {
+    width:200px;
+    height: auto;
+  }
+
+}

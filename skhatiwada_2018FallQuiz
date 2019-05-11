@@ -1,0 +1,154 @@
+Open another terminal for your queries and use vi to paste your queries and results
+into this file.  Queries and results highlighted in the query are in Windows' copy
+buffer and can be pasted into this file using right-click or shift-Insert.
+
+
+1) List this semester's partner organizaions and their managers.  These accounts have
+AcctEntityType of 'Partner Organization' and DTCreated after 2017-09-01.
+
+ +--------+--------------------------+---------------------------+---------+
+ | RoleId | OrgName                  | Person                    | Role    |
+ +--------+--------------------------+---------------------------+---------+
+ |   1701 | All-In-One               | John Kim                  | Manager |
+ |   1639 | All-In-One               | Nadir Saleh               | Manager |
+ |   1693 | All-In-One               | Bruce Toulon              | Manager |
+ |   1632 | BMG                      | Seumas Cahan              | Manager |
+ |   1628 | BMG                      | Darmic Marrow             | Manager |
+ |   1690 | Book Worms               | Clement Afriyie           | Manager |
+ |   1645 | Book Worms               | E Freedlander             | Manager |
+ |   1643 | Book Worms               | Cameron Gore              | Manager |
+ |   1634 | Book Worms               | Daniel Hammond Jeffery    | Manager |
+ |   1647 | Book Worms               | Nicholas Kondysar         | Manager |
+ |   1646 | Book Worms               | Diego Marquez             | Manager |
+ |   1686 | Brittany and Friends 3.0 |  Brittany and Friends 3.0 | Manager |
+ |   1717 | Brittany and Friends 3.0 | Dave Limtsen              | Manager |
+ |   1638 | Brittany and Friends 3.0 | Pierre Zaddy Randall      | Manager |
+ |   1695 | Brittany and Friends 3.0 | Rohit Sharma              | Manager |
+ |   1687 | Brittany and Friends 3.0 | Brittany Wong             | Manager |
+ |   1676 | Circuit                  | Nora Almugren             | Manager |
+ |   1642 | Circuit                  | Louis Dajeu               | Manager |
+ |   1667 | Circuit                  | Jim Quiroz                | Manager |
+ |   1709 | First String Athletics   | Abdulkarim Abdulle        | Manager |
+ |   1715 | First String Athletics   | Brandon Mason             | Manager |
+ |   1662 | Hurleu Shop              | Raeed Aljahdali           | Manager |
+ |   1663 | Hurleu Shop              | Mariam Anwari             | Manager |
+ |   1633 | LinStall                 | Alex K aMartin            | Manager |
+ |   1640 | Pets R Us                | Sarah Khouri              | Manager |
+ |   1660 | Sweet Spot               | Patrick Perscky           | Manager |
+ |   1664 | Sweet Spot               | Patrick Perscky           | Manager |
+ |   1665 | Sweet Spot               | Joanna Senseng            | Manager |
+ |   1658 | Sweet Spot               | Lisa Turtle               | Manager |
+ |   1712 | Tablets &amp; More       | Robin DaBank              | Manager |
+ |   1703 | Tablets &amp; More       | Mai Thy                   | Manager |
+ |   1699 | The Golden Goat          | Wesley Kwame Jones        | Manager |
+ |   1696 | The Golden Goat          |  The Golden Goat          | Manager |
+ |   1675 | The Golden Goat          | Donald Trump              | Manager |
+ |   1685 | The Golden Goat          | Michael Watson            | Manager |
+ |   1627 | Three Dudes Photography  | Daryl Misquith            | Manager |
+ |   1637 | Three Dudes Photography  | Bhupinder Singh           | Manager |
+ |   1635 | Three Dudes Photography  | Suraj Telhan              | Manager |
+ +--------+--------------------------+---------------------------+---------+
+ 38 rows in set (0.00 sec)
+ 
+Paste the unformatted query between the lines:
+________________________
+
+
+
+
+
+________________________
+
+ 
+ 
+ 
+ 
+ 2) Show the investors for Rowdy Pinschers, #256.  These are details on fulfilled orders with DLedger=3000.
+
+  +------------+-----------------+------------+
+  | Date       | Investor        | Invested   |
+  +------------+-----------------+------------+
+  | 2016-05-27 | Rhue Pinscher   | -50,000.00 |
+  | 2016-10-31 | Rowdy Chihuahua | -80,000.00 |
+  | 2017-03-15 | Leon Pinscher   | -17,000.00 |
+  | 2017-11-20 | john  Konici    | -7,000.00  |
+  +------------+-----------------+------------+
+  4 rows in set (0.01 sec)
+
+
+
+Paste the unformatted query between the lines:
+________________________
+
+
+
+
+
+________________________
+
+
+
+  
+  
+  3) Show the Trial Balance for Rowdy Pinschers, #256.  This is calculated from Details on
+  Fulfilled Orders.  Net per detail is DQtyDelivered * DCPEach.  Use the round or other
+  function to show two decimal places.
+
+  +---------+---------------------------+-------------+
+  | DLedger | LAName                    | Net         |
+  +---------+---------------------------+-------------+
+  |    1000 | Cash                      | 153,041.02  |
+  |    1010 | Trade Accounts Receivable | 6,542.98    |
+  |    2000 | Trade Accounts Payable    | -15,769.45  |
+  |    2001 | Payroll Payable           | -106.50     |
+  |    3000 | Paid in Capital           | -154,000.00 |
+  |    4000 | Sales of Goods            | -7,814.44   |
+  |    4005 | Postage & Shipping        | -361.00     |
+  |    4010 | Sales of Services         | -500.00     |
+  |    5000 | Cost of Goods Sold        | 17,612.45   |
+  |    5009 | Web Shop Fees             | 6.44        |
+  |    5010 | Cost of Services Sold     | 153.00      |
+  |    5030 | Wages                     | 745.50      |
+  |    5050 | Rent                      | 250.00      |
+  +---------+---------------------------+-------------+
+  13 rows in set (0.06 sec)
+
+Paste the unformatted query between the lines:
+________________________
+
+
+
+
+
+________________________
+  
+  
+  4) Show the items originated by OctoShop, #606, with their  Price and Cost each, QOH,
+  and the value in Inventory..
+  Cost and Price come from the Items table,
+  QOH is the sum of DQtyDelivered on details of fulfilled orders.
+  
+  +------------------------------+---------+---------+-------+-----------+
+  | ItemDescription              | Price   | Cost    | QOH   | Inventory |
+  +------------------------------+---------+---------+-------+-----------+
+  | Air Jordan IV Cement         |  250.00 |  150.00 | 22.00 |   3300.00 |
+  | Air Jordan V Grape           |  250.00 |  150.00 | 16.00 |   2400.00 |
+  | Air Jordan V Metallic SIlver |  250.00 |  150.00 |  4.00 |    600.00 |
+  | Aquarium Sink                | 4500.00 | 3000.00 |  4.00 |  12000.00 |
+  | Bit Crusher Pedal            |  250.00 |  140.00 | 13.00 |   1820.00 |
+  | Dolphin Guitar               | 1999.00 | 1400.00 |  4.00 |   5600.00 |
+  | Old Skool Vans               |   70.00 |   40.00 | 26.00 |   1040.00 |
+  | Ric 4001 Bass                |  800.00 |  450.00 |  4.00 |   1800.00 |
+  +------------------------------+---------+---------+-------+-----------+
+  8 rows in set (0.11 sec)
+
+Paste the unformatted query between the lines:
+________________________
+
+
+
+
+
+________________________
+
+  

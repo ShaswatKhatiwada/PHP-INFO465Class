@@ -1,0 +1,112 @@
+Patriots
+Cowbots
+Giants
+Eagles
+Raiders
+Packers
+Steelers
+Seahawks
+Browns
+Bears
+Bears
+Broncos
+49ers
+Vikings
+Redskins
+Dolphins
+Chiefs
+Jets
+Cardinals
+Saints
+Lions
+Bills
+Colts
+Rams
+Ravens
+Falcons
+Panthers
+Taxans
+Bengals
+Chargers
+Titans
+Jaguars
+Buccaneers
+Barcelona
+Liverpool FC
+Manchester City
+Juventus
+Bayern München
+Atlético Madrid
+Paris Saint-Germain
+Tottenham Hotspur
+Real Madrid
+Ajax Amsterdam
+FC Porto
+Manchester United
+Arsenal
+SSC Napoli
+Borussia Dortmund
+Chelsea FC
+Benfica
+RasenBallsport Leipzig
+Valencia
+Shakhtar Donetsk
+Palmeiras
+PSV Eindhoven
+Inter Milan
+Salzburg
+Hoffenheim
+Eintracht Frankfurt
+Sevilla
+River Plate
+Atalanta
+Roma
+Sporting
+AC Milan
+FK Red Star Belgrade
+Boca Juniors
+Getafe
+Racing Club
+Olimpia
+Athletic Bilbao
+Dynamo Kyiv
+Bayer Leverkusen
+Torino
+Werder Bremen
+Flamengo
+Lyon
+Lazio
+Atlético PR
+Lille
+Slavia Prague
+FCI Levadia Tallinn
+Flora Tallinn
+Atlanta Hawks
+Boston Celtics
+Brooklyn Nets
+Charlotte Hornets
+Chicago Bulls
+Cleveland Cavaliers
+Dallas Mavericks
+Denver Nuggets
+Detroit Pistons
+Golden State Warriors
+Houston Rockets
+Indiana Pacers
+Los Angeles Clippers
+Los Angeles Lakers
+Memphis Grizzlies
+Miami Heat
+Milwaukee Bucks
+Minnesota Timeberwolves
+New Orleans Pelicans
+New York Knicks
+Oklahoma City Thunder
+Orlando Magic
+Philadelphia 76ers
+Phoenix Suns
+Portland Trail Blazers
+Sacramento Kings
+Toronto Raptors
+Utah Jazz
+Washington Wizards

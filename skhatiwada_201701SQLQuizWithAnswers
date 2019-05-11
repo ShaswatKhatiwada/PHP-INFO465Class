@@ -1,0 +1,164 @@
+Open another terminal for your queries and use vi to paste your queries and results
+into this file.  Queries and results highlighted in the query are in Windows' copy
+buffer and can be pasted into this file using right-click or shift-Insert.
+
+1) List the managers for this semester's team shops at 2016Winter.  These accounts have
+AcctEntityType of 'Partner Organization' and DTCreated after 2017-02-01.
+
+select RoleId, TheOrg.AcctLastName as OrgName, 
+       concat(ThePerson.AcctFirstName,' ',ThePerson.AcctLastName) as Person, Role
+from Roles join Accounts as TheOrg on OrgId=TheOrg.AcctId
+           join Accounts as ThePerson on Roles.AcctId=ThePerson.AcctId     
+where TheOrg.AcctEntityType='Partner Organization' 
+      and DTCreated > '2017-02-01' and Role='Manager' and RoleStatus='Active' 
+order by OrgName, ThePerson.AcctLastName;
+
++--------+---------------------------+----------------------------+---------+
+| RoleId | OrgName                   | Person                     | Role    |
++--------+---------------------------+----------------------------+---------+
+|   1381 | Ali RARA                  | Falon LaRose               | Manager |
+|   1354 | Ali RARA                  | Nibal A                    | Manager |
+|   1358 | Apathetic Adventure       | Alex Caligiuri             | Manager |
+|   1366 | Apathetic Adventure       | Alonzo Eric Smith          | Manager |
+|   1351 | Apathetic Adventure       | Darnell  Ford              | Manager |
+|   1419 | Capital Retail            | Alexander Duff             | Manager |
+|   1420 | Capital Retail            | Ribka Tadesse              | Manager |
+|   1312 | Eshop 465                 | Joseph Tedeschi            | Manager |
+|   1310 | Eshop 465                 | Kristoffer Louie Balinang  | Manager |
+|   1302 | Eshop 465                 | Ryan White                 | Manager |
+|   1316 | Fresco Shop               | Gary Camper                | Manager |
+|   1296 | JSLK                      | James Caughey              | Manager |
+|   1305 | JSLK                      | Lindsay King               | Manager |
+|   1299 | JSLK                      | Marcus Graham              | Manager |
+|   1298 | JSLK                      | Step Little                | Manager |
+|   1297 | JSLK                      | Zeyad Negash               | Manager |
+|   1336 | Kwik-E-Mart               | Bi Ou                      | Manager |
+|   1325 | Kwik-E-Mart               | JAMES NICHOLSON            | Manager |
+|   1338 | Kwik-E-Mart               | Jonathan Fremin            | Manager |
+|   1337 | Kwik-E-Mart               | Nathan Williams            | Manager |
+|   1335 | Kwik-E-Mart               | Zahid  Noori               | Manager |
+|   1315 | Meow Street               | Mary Bull                  | Manager |
+|   1314 | Meow Street               | Thomas Nguyen              | Manager |
+|   1367 | Meow Street               | Wyatt Munson               | Manager |
+|   1379 | Mid-Atlantic Salsa Supply | Mohammed Alhassan          | Manager |
+|   1361 | Overwatch                 | Abdiwahid Hassan           | Manager |
+|   1360 | Overwatch                 | Hyeon Gang                 | Manager |
+|   1352 | Overwatch                 | Nattapol Karopas           | Manager |
+|   1340 | Random Shop               | Angel Ntumy                | Manager |
+|   1327 | Random Shop               | Francis Addai              | Manager |
+|   1339 | Random Shop               | Hooks Cooks                | Manager |
+|   1342 | Random Shop               | Jacob Roberson             | Manager |
+|   1343 | Random Shop               | Michael Christopher Miller | Manager |
+|   1369 | RMSS Apparel              | Mouhanad Azzam             | Manager |
+|   1382 | RMSS Apparel              | Rajnarayan Pilaka          | Manager |
+|   1318 | RMSS Apparel              | Sharif Jico                | Manager |
+|   1368 | RMSS Apparel              | Shiv Chhagan               | Manager |
+|   1324 | Sims Watch , LLC          | Rickey Young               | Manager |
+|   1348 | Sims Watch , LLC          | Yonis Ainab                | Manager |
+|   1333 | The/Relative/Path         | E Rojas                    | Manager |
+|   1326 | The/Relative/Path         | Greg Eskridge              | Manager |
+|   1332 | The/Relative/Path         | Jake Happersett            | Manager |
+|   1331 | The/Relative/Path         | Michael Cohen              | Manager |
+|   1334 | The/Relative/Path         | Scott Roberts              | Manager |
+|   1350 | Tronix                    | Kayla Baylor               | Manager |
+|   1347 | Tronix                    | Michael Thomas             | Manager |
+|   1311 | Vineyard Wines            | Cameron Thomas             | Manager |
+|   1383 | Vineyard Wines            | Christian Miller           | Manager |
+|   1317 | Vineyard Wines            | Corey M Cross              | Manager |
+|   1385 | Vineyard Wines            | Edward Hardison            | Manager |
+|   1309 | Vineyard Wines            | Hyunjun Hwang              | Manager |
+|   1313 | Vineyard Wines            | Jason Jong Choi            | Manager |
+|   1300 | Vineyard Wines            | Kevin Luu                  | Manager |
+|   1386 | Vineyard Wines            | Morris Lautares            | Manager |
+|   1372 | Ziyala Co.                | Waleed Albeladi            | Manager |
+|   1371 | Ziyala Co.                | Ziyad E Alotaibi           | Manager |
++--------+---------------------------+----------------------------+---------+
+56 rows in set (0.00 sec)
+
+
+2) Show the investors for Rowdy Pinschers, #256.  These are details on fulfilled orders with DLedger=3000.
+
+select OAccountingDate as Date, concat(AcctFirstName,' ',AcctLastName) as Investor, 
+       format((DQtyDelivered * DCPEach),2) as Invested 
+from Details join Orders on DOId=OId 
+             join Accounts on OAcctId=AcctId 
+where DLedger=3000 and OOrgId=256 and OStatus='Fulfilled';     
+
+
++------------+-----------------+------------+
+| Date       | Investor        | Invested   |
++------------+-----------------+------------+
+| 2016-05-27 | Rhue Pinscher   | -50,000.00 |
+| 2016-10-31 | Rowdy Chihuahua | -80,000.00 |
+| 2017-03-15 | Leon Pinscher   | -17,000.00 |
++------------+-----------------+------------+
+
+
+3) Show the Trial Balance for Rowdy Pinschers, #256.  This is calculated from Details on Fulfilled Orders.    
+Net per detail is DQtyDelivered * DCPEach.  Use the round function to show two decimal places.
+
+select DLedger, LAName, format(sum(DQtyDelivered * DCPEach),2) as Net 
+from Details join Orders on DOId=OId join LedgerAccounts on DLedger=LAId 
+where OOrgId=256 and OStatus='Fulfilled' 
+group by DLedger 
+order by DLedger;
+
+
++---------+---------------------------+-------------+
+| DLedger | LAName                    | Net         |
++---------+---------------------------+-------------+
+|    1000 | Cash                      | 145,274.02  |
+|    1010 | Trade Accounts Receivable | 6,542.98    |
+|    2000 | Trade Accounts Payable    | -3,093.95   |
+|    3000 | Paid in Capital           | -147,000.00 |
+|    4000 | Sales of Goods            | -6,634.44   |
+|    4005 | Postage & Shipping        | -236.00     |
+|    4010 | Sales of Services         | -250.00     |
+|    5000 | Cost of Goods Sold        | 4,561.95    |
+|    5009 | Web Shop Fees             | 6.44        |
+|    5010 | Cost of Services Sold     | 153.00      |
+|    5030 | Wages                     | 426.00      |
+|    5050 | Rent                      | 250.00      |
++---------+---------------------------+-------------+
+12 rows in set (0.03 sec)
+
+Show that it nets zero:
+
+select format(sum(DQtyDelivered * DCPEach),2) as Net 
+from Details join Orders on DOId=OId join LedgerAccounts on DLedger=LAId 
+where OOrgId=256 and OStatus='Fulfilled' ;
+
++------+
+| Net  |
++------+
+| 0.00 |
++------+
+
+
+4) Show the items originated by OctoShop, #606, with their Cost, Price, and QOH. 
+Cost and Price come from the Items table, QOH is the sum of DQtyDelivered on details of fulfilled orders.
+
+select ItemDescription, round(ItemCost,2) as Cost, round(ItemPrice,2) as Price, 
+       round(sum(DQtyDelivered),2) as QOH 
+from Items join Details on ItemId=DItemId 
+           join Orders on DOId=OId 
+where ItemOriginalOrgId=606 and OStatus='Fulfilled' 
+group by ItemId 
+order by ItemDescription;
+
+
++------------------------------+---------+---------+-------+
+| ItemDescription              | Cost    | Price   | QOH   |
++------------------------------+---------+---------+-------+
+| Air Jordan IV Cement         |  150.00 |  250.00 | 22.00 |
+| Air Jordan V Grape           |  150.00 |  250.00 | 16.00 |
+| Air Jordan V Metallic SIlver |  150.00 |  250.00 |  4.00 |
+| Aquarium Sink                | 3000.00 | 4500.00 |  4.00 |
+| Bit Crusher Pedal            |  140.00 |  250.00 | 13.00 |
+| Dolphin Guitar               | 1400.00 | 1999.00 |  4.00 |
+| Old Skool Vans               |   40.00 |   70.00 | 26.00 |
+| Ric 4001 Bass                |  450.00 |  800.00 |  4.00 |
++------------------------------+---------+---------+-------+
+8 rows in set (0.05 sec)
+
+
